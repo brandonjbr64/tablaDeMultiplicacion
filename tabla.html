@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Crear tabla</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generador de tabla dinamica</h1>
+        <p id="texto" style="display:none">Generando tabla del numero <strong id="num_table"></strong></p>
+
+        <div id="generar"></div>
+    </div>
+
+
+    <script>
+
+        let lienzo = document.getElementById('generar');
+        let num_table = document.getElementById('num_table');
+        let texto = document.getElementById('texto');
+        let numero = create_table();
+
+        if (!isNaN(numero) && numero != null && numero != "") {
+
+            num_table.innerHTML = numero;
+            texto.style.display = '';
+            let leng_tab = length_table();
+
+            for (let i = 1; i <= leng_tab; i++) {
+                lienzo.innerHTML += `${numero} * ${i} = ${numero * i} <br />`;
+            }
+
+        } else {
+            alert('Debes de ser un Numero');
+            create_table();
+        }
+
+        function length_table() {
+            let longitud = prompt("Introduce el numero de la longitud que desea generarla");
+            return longitud;
+        }
+        
+
+        function create_table() {
+            let valor = prompt("Introduce el numero de la tabla a generar");
+            return valor;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
